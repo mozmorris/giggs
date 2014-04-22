@@ -1,5 +1,5 @@
 {
-  "name": "webappbuff",
+  "name": "sinatra-create",
   "private": true,
   "dependencies": {
     "modernizr": "~2.6.2",

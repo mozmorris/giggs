@@ -19,6 +19,6 @@ gem 'sinatra-sequel'
 gem 'mysql2'
 
 group :development do
-  gem "guard-pow"
+  gem 'guard-unicorn'
   gem 'debugger', require: 'ruby-debug'
 end

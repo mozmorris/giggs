@@ -39,6 +39,21 @@ module.exports = function (grunt) {
                     async: true
                 },
                 command: 'bundle exec guard'
+            },
+            unicorn: {
+                options: {
+                    stdout: true,
+                    stderr: true,
+                    async: true
+                },
+                command: 'foreman start'
+            }
+        },
+
+        // open default web browser
+        open: {
+            dev: {
+                path: 'http://0.0.0.0:5000'
             }
         },
 
@@ -60,7 +75,7 @@ module.exports = function (grunt) {
             },
             sass: {
                 files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
-                tasks: ['sass:server', 'autoprefixer']
+                tasks: ['sass:dev', 'autoprefixer']
             },
             styles: {
                 files: ['<%= config.app %>/styles/{,*/}*.css'],
@@ -90,7 +105,7 @@ module.exports = function (grunt) {
                     ]
                 }]
             },
-            server: '<%= config.app %>/tmp'
+            dev: '<%= config.app %>/tmp'
         },
 
         // Make sure code styles are up to par and there are no obvious mistakes
@@ -122,7 +137,7 @@ module.exports = function (grunt) {
                     ext: '.css'
                 }]
             },
-            server: {
+            dev: {
                 files: [{
                     expand: true,
                     cwd: '<%= config.app %>/styles',
@@ -290,8 +305,8 @@ module.exports = function (grunt) {
 
         // Run some tasks in parallel to speed up build process
         concurrent: {
-            server: [
-                'sass:server',
+            dev: [
+                'sass:dev',
                 'copy:styles'
             ],
             test: [
@@ -310,9 +325,10 @@ module.exports = function (grunt) {
     grunt.registerTask('serve', function () {
         grunt.task.run([
             'shell',
-            'clean:server',
-            'concurrent:server',
+            'clean:dev',
+            'concurrent:dev',
             'autoprefixer',
+            'open:dev',
             'watch'
         ]);
     });
