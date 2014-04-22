@@ -1,4 +1,4 @@
-module SinatraCreate
+module GruntSinatra
   module Routes
     autoload :Base, 'app/routes/base'
     autoload :Static, 'app/routes/static'

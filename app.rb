@@ -25,7 +25,7 @@ require 'app/models'
 require 'app/helpers'
 require 'app/routes'
 
-module SinatraCreate
+module GruntSinatra
   class App < Sinatra::Application
     configure do
       set :database, lambda {
@@ -67,4 +67,4 @@ module SinatraCreate
 end
 
 # Model access from console
-include SinatraCreate::Models
+include GruntSinatra::Models

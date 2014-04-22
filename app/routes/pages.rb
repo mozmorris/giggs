@@ -1,4 +1,4 @@
-module SinatraCreate
+module GruntSinatra
   module Routes
     class Pages < Base
       get '/' do

@@ -1,3 +1,3 @@
 require './app'
 
-run SinatraCreate::App
+run GruntSinatra::App

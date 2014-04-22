@@ -1,4 +1,4 @@
-module SinatraCreate
+module GruntSinatra
   module Helpers
   end
 end

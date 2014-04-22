@@ -1,4 +1,4 @@
-module SinatraCreate
+module GruntSinatra
   module Routes
     class Static < Sinatra::Application
       configure do
