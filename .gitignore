@@ -3,6 +3,7 @@
 .sass-cache
 app/views/production
 dev/bower_components
+log
 node_modules
 public
 tmp
