@@ -26,6 +26,7 @@ GEM
       nio4r (>= 0.5.0)
     coderay (1.1.0)
     columnize (0.8.9)
+    daemon_controller (1.1.7)
     debugger (1.6.6)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
@@ -44,11 +45,10 @@ GEM
       lumberjack (~> 1.0)
       pry (>= 0.9.12)
       thor (>= 0.18.1)
-    guard-unicorn (0.1.1)
-      guard (>= 1.1)
+    guard-passenger (0.5.1)
+      guard (>= 1.1.0.beta)
     i18n (0.6.9)
     json (1.7.7)
-    kgio (2.9.2)
     listen (2.7.1)
       celluloid (>= 0.15.2)
       celluloid-io (>= 0.15.0)
@@ -60,6 +60,10 @@ GEM
     multi_json (1.9.2)
     mysql2 (0.3.14)
     nio4r (1.0.0)
+    passenger (4.0.25)
+      daemon_controller (>= 1.1.0)
+      rack
+      rake (>= 0.8.1)
     pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -70,7 +74,6 @@ GEM
     rack-standards (0.0.1)
     rack-test (0.6.2)
       rack (>= 1.0)
-    raindrops (0.13.0)
     rake (10.3.1)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.3)
@@ -90,10 +93,6 @@ GEM
     timers (1.1.0)
     tzinfo (1.1.0)
       thread_safe (~> 0.1)
-    unicorn (4.8.2)
-      kgio (~> 2.6)
-      rack
-      raindrops (~> 0.7)
 
 PLATFORMS
   ruby
@@ -104,14 +103,14 @@ DEPENDENCIES
   debugger
   dotenv
   erubis
-  guard-unicorn
+  guard-passenger
   i18n
   json (~> 1.7.7)
   mysql2
+  passenger
   rack-standards
   rake
   sequel
   sinatra
   sinatra-contrib!
   sinatra-sequel
-  unicorn
