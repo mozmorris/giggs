@@ -1,4 +1,8 @@
-tmp
-.DS_Store
+.tmp
 .env
-mails
+.sass-cache
+app/views/production
+dev/bower_components
+node_modules
+public
+tmp

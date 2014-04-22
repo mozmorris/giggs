@@ -4,6 +4,7 @@ module SinatraCreate
       configure do
         set :views, 'app/views'
         set :root, File.expand_path('../../../', __FILE__)
+        set :public_folder, Proc.new { File.join(root, 'dev') }
         disable :method_override
         disable :protection
         enable :static

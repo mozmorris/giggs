@@ -2,17 +2,29 @@ module SinatraCreate
   module Routes
     class Base < Sinatra::Application
       configure do
-        set :views, 'app/views'
         set :root, File.expand_path('../../../', __FILE__)
 
         disable :method_override
         disable :protection
         disable :static
 
-        set :erb, escape_html: true,
-                  layout_options: {views: 'app/views/layouts'}
+        set :erb, escape_html: true
 
         enable :use_code
+      end
+
+      configure :development do
+        set :views, 'app/views/development'\
+
+        set :erb,
+            layout_options: { views: 'app/views/development/layouts' }
+      end
+
+      configure :production do
+        set :views, 'app/views/production'
+
+        set :erb,
+            layout_options: { views: 'app/views/production/layouts' }
       end
 
       helpers Helpers
