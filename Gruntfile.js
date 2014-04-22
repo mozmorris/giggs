@@ -34,19 +34,11 @@ module.exports = function (grunt) {
         shell: {
             guard: {
                 options: {
-                    stdout: false,
-                    stderr: false,
-                    async: true
-                },
-                command: 'bundle exec guard'
-            },
-            unicorn: {
-                options: {
                     stdout: true,
                     stderr: true,
                     async: true
                 },
-                command: 'foreman start'
+                command: 'bundle exec guard'
             }
         },
 
@@ -324,7 +316,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('serve', function () {
         grunt.task.run([
-            'shell',
+            'shell:guard',
             'clean:dev',
             'concurrent:dev',
             'autoprefixer',
