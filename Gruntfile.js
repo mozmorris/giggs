@@ -158,7 +158,9 @@ module.exports = function (grunt) {
         // Automatically inject Bower components into the HTML file
         bowerInstall: {
             app: {
-                src: ['<%= config.sinatraLayouts %>/layout.erb']
+                src: ['<%= config.sinatraLayouts %>/layout.erb'],
+                ignorePath: '../../../../dev',
+                exclude: [ 'bower_components/modernizr/modernizr.js' ],
             },
             sass: {
                 src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}']
