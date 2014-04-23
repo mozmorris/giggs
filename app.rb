@@ -9,8 +9,6 @@ $: << File.expand_path('../lib', __FILE__)
 require 'dotenv'
 Dotenv.load
 
-# Require base
-require 'sinatra/base'
 require 'active_support/core_ext/string'
 require 'active_support/core_ext/array'
 require 'active_support/core_ext/hash'
@@ -30,7 +28,7 @@ module GruntSinatra
     configure do
       set :database, lambda {
         ENV['DATABASE_URL'] ||
-          "mysql2://username:password@localhost:3306/sinatra_create_#{environment}"
+          "mysql2://username:password@localhost:3306/grunt_sinatra_#{environment}"
       }
     end
 
