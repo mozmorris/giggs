@@ -5,7 +5,6 @@ gem 'sinatra', require: 'sinatra/base'
 gem 'sinatra-contrib', github: 'maccman/sinatra-contrib'
 gem 'sinatra-flash'
 gem 'rack-standards'
-gem 'passenger'
 gem 'erubis'
 gem 'i18n'
 gem 'activesupport'
@@ -21,6 +20,5 @@ gem 'sinatra-sequel'
 gem 'mysql2'
 
 group :development do
-  gem 'guard-passenger'
   gem 'debugger', require: 'ruby-debug'
 end

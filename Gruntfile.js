@@ -32,20 +32,13 @@ module.exports = function (grunt) {
 
         // Run shell commands
         shell: {
-            guard: {
+            restart: {
                 options: {
-                    stdout: true,
-                    stderr: true,
+                    stdout: false,
+                    stderr: false,
                     async: true
                 },
-                command: 'bundle exec guard'
-            }
-        },
-
-        // open default web browser
-        open: {
-            dev: {
-                path: 'http://0.0.0.0:3000'
+                command: 'touch tmp/restart.txt'
             }
         },
 
@@ -57,6 +50,17 @@ module.exports = function (grunt) {
             //     files: ['bower.json'],
             //     tasks: ['bowerInstall']
             // },
+            backend: {
+                files: [
+                    'Gemfile',
+                    'Gemfile.lock',
+                    'app/**/*.rb',
+                    'app.rb',
+                    'config.ru',
+                    'lib/**/*.rb',
+                ],
+                tasks: ['shell:restart']
+            },
             js: {
                 files: ['<%= config.app %>/scripts/{,*/}*.js'],
                 tasks: ['jshint'],
@@ -324,11 +328,9 @@ module.exports = function (grunt) {
 
     grunt.registerTask('serve', function () {
         grunt.task.run([
-            'shell:guard',
             'clean:dev',
             'concurrent:dev',
             'autoprefixer',
-            'open:dev',
             'watch'
         ]);
     });
