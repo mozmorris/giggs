@@ -65,9 +65,9 @@ module.exports = function (grunt) {
             gruntfile: {
                 files: ['Gruntfile.js']
             },
-            sass: {
+            compass: {
                 files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
-                tasks: ['sass:dev', 'autoprefixer']
+                tasks: ['compass:dev', 'autoprefixer']
             },
             styles: {
                 files: ['<%= config.app %>/styles/{,*/}*.css'],
@@ -114,29 +114,33 @@ module.exports = function (grunt) {
         },
 
         // Compiles Sass to CSS and generates necessary files if requested
-        sass: {
+        compass: {
             options: {
-                loadPath: [
-                    'bower_components'
-                ]
+                sassDir: '<%= config.app %>/styles',
+                cssDir: '<%= config.app %>/tmp/styles',
+                generatedImagesDir: '<%= config.app %>/tmp/images/generated',
+                imagesDir: '<%= config.app %>/images',
+                javascriptsDir: '<%= config.app %>/scripts',
+                fontsDir: '<%= config.app %>/styles/fonts',
+                importPath: '<%= config.app %>/bower_components',
+                httpImagesPath: '/images',
+                httpGeneratedImagesPath: '/images/generated',
+                httpFontsPath: '/styles/fonts',
+                relativeAssets: false,
+                assetCacheBuster: false
             },
             dist: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= config.app %>/styles',
-                    src: ['*.scss'],
-                    dest: '<%= config.app %>/tmp/styles',
-                    ext: '.css'
-                }]
+                options: {
+                    generatedImagesDir: '<%= config.dist %>/images/generated',
+                    httpImagesPath: '../images',
+                    httpGeneratedImagesPath: '../images/generated',
+                    httpFontsPath: '../styles/fonts'
+                }
             },
             dev: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= config.app %>/styles',
-                    src: ['*.scss'],
-                    dest: '<%= config.app %>/tmp/styles',
-                    ext: '.css'
-                }]
+                options: {
+                    debugInfo: true
+                }
             }
         },
 
@@ -300,14 +304,14 @@ module.exports = function (grunt) {
         // Run some tasks in parallel to speed up build process
         concurrent: {
             dev: [
-                'sass:dev',
+                'compass:dev',
                 'copy:styles'
             ],
             test: [
                 'copy:styles'
             ],
             dist: [
-                'sass',
+                'compass',
                 'copy:styles',
                 'imagemin',
                 'svgmin'
