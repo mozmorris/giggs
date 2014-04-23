@@ -30,7 +30,7 @@ module GruntSinatra
     configure do
       set :database, lambda {
         ENV['DATABASE_URL'] ||
-          "mysql2://moz:p455w0rd@localhost:3306/sinatra_create_#{environment}"
+          "mysql2://username:password@localhost:3306/sinatra_create_#{environment}"
       }
     end
 
