@@ -3,6 +3,7 @@ ruby '2.0.0'
 
 gem 'sinatra', require: 'sinatra/base'
 gem 'sinatra-contrib', github: 'maccman/sinatra-contrib'
+gem 'sinatra-flash'
 gem 'rack-standards'
 gem 'passenger'
 gem 'erubis'
@@ -12,6 +13,7 @@ gem 'rake'
 gem 'builder'
 gem 'json', '~> 1.7.7'
 gem 'dotenv'
+gem 'bcrypt-ruby'
 
 # DB
 gem 'sequel'

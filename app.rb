@@ -59,8 +59,8 @@ module GruntSinatra
       # Production only
     end
 
-    # Other routes:
     use Routes::Pages
+    use Routes::Users
   end
 end
 

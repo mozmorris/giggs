@@ -1,5 +1,5 @@
 module GruntSinatra
   module Models
-    # autoload :Post, 'app/models/post'
+    autoload :User, 'app/models/user'
   end
 end

@@ -27,6 +27,10 @@ module GruntSinatra
             layout_options: { views: 'app/views/production/layouts' }
       end
 
+      before do
+        @user = User.get(session[:user_id])
+      end
+
       helpers Helpers
       helpers Sinatra::ContentFor
     end
