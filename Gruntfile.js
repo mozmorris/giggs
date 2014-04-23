@@ -45,7 +45,7 @@ module.exports = function (grunt) {
         // open default web browser
         open: {
             dev: {
-                path: 'http://0.0.0.0:5000'
+                path: 'http://0.0.0.0:3000'
             }
         },
 
