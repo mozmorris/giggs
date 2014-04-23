@@ -36,6 +36,24 @@
         <!-- endbower -->
         <!-- endbuild -->
 
+        <% if is_user? %>
+            <!-- build:js(dev) /scripts/create.js -->
+            <script src="/bower_components/jquery-ui/ui/jquery-ui.js"></script>
+            <script src="/bower_components/underscore/underscore.js"></script>
+            <script src="/bower_components/backbone/backbone.js"></script>
+            <script src="/bower_components/jquery-rdfquery/js/jquery.rdfquery.core.js"></script>
+            <script src="/bower_components/jquery-rdfquery/js/jquery.rdfquery.rdfa.js"></script>
+            <script src="/bower_components/jquery-rdfquery/js/jquery.rdfquery.rules.js"></script>
+            <script src="/bower_components/vie/dist/vie.js"></script>
+            <script src="/bower_components/jquery.tagsinput/jquery.tagsinput.js"></script>
+            <script src="/bower_components/annotate/annotate.js"></script>
+            <script src="/bower_components/jquery-htmlclean/jquery.htmlClean.js"></script>
+            <script src="/bower_components/rangy/rangy-core.js"></script>
+            <script src="/bower_components/hallo/dist/hallo.js"></script>
+            <script src="/bower_components/create/dist/create.js"></script>
+            <!-- endbuild -->
+        <% end %>
+
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
