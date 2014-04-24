@@ -1,7 +1,7 @@
 <section about="/pages/<%= @page[:id] %>" vocab="http://schema.org/" typeof="WebPage">
-    <h1 property="h1"><%= @page[:h1] %></h1>
+    <h1 property="h1"><%== @page[:h1] %></h1>
 
-    <h2 property="h2"><%= @page[:h2] %></h2>
+    <h2 property="h2"><%== @page[:h2] %></h2>
 
-    <p property="intro"><%= @page[:intro] %></p>
+    <p property="intro"><%== @page[:intro] %></p>
 </section>
