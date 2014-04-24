@@ -26,7 +26,8 @@ App.Create = (function ($, w) {
         $.ajax({
             url: '/pages/' + this.id,
             type: 'put',
-            data: model.attributes,
+            data: model.toJSON(),
+            dataType: 'json',
             success: function () {
                 options.success(model);
             },
