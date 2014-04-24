@@ -14,7 +14,7 @@ module GruntSinatra
       end
 
       configure :development do
-        set :views, 'app/views/development'\
+        set :views, 'app/views/development'
 
         set :erb,
             layout_options: { views: 'app/views/development/layouts' }
@@ -25,6 +25,14 @@ module GruntSinatra
 
         set :erb,
             layout_options: { views: 'app/views/production/layouts' }
+      end
+
+      set(:auth) do |*roles|
+        condition do
+          unless is_user?
+            redirect "/login", 303
+          end
+        end
       end
 
       before do
