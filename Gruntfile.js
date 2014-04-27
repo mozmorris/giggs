@@ -130,7 +130,7 @@ module.exports = function (grunt) {
                 fontsDir: '<%= config.app %>/styles/fonts',
                 importPath: '<%= config.app %>/bower_components',
                 httpImagesPath: '/images',
-                httpGeneratedImagesPath: '/images/generated',
+                httpGeneratedImagesPath: '/tmp/images/generated',
                 httpFontsPath: '/styles/fonts',
                 relativeAssets: false,
                 assetCacheBuster: false
