@@ -21,4 +21,5 @@ gem 'mysql2'
 
 group :development do
   gem 'debugger', require: 'ruby-debug'
+  gem 'thor'
 end

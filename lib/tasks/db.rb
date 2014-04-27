@@ -14,4 +14,11 @@ namespace :db do
     version  = (row = database[:schema_info].first) ? row[:version] : nil
     Sequel::Migrator.apply(database, 'db/migrations', version - 1)
   end
+
+  desc 'Seed database'
+  task :seed => :app do
+    seed_file = 'db/seed.rb'
+    load(seed_file) if File.exist?(seed_file)
+  end
 end
+

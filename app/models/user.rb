@@ -15,15 +15,13 @@ module GruntSinatra
         end
       end
 
-      private
+      def password=(unencrypted_password)
+        @password = unencrypted_password
 
-        def password=(unencrypted_password)
-          @password = unencrypted_password
-
-          unless unencrypted_password.blank?
-            self.password_digest = BCrypt::Password.create(unencrypted_password)
-          end
+        unless unencrypted_password.blank?
+          self.password_digest = BCrypt::Password.create(unencrypted_password)
         end
+      end
     end
   end
 end
