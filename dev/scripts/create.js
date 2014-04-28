@@ -6,9 +6,13 @@ App.Create = (function ($, w) {
 
     function Create ($el, options) {
 
+        if (typeof $el.midgardCreate !== 'function') {
+            return;
+        }
+
         this.options = $.extend({}, Create.defaults, options);
 
-        $($el).midgardCreate();
+        $el.midgardCreate();
 
         w.Backbone.sync = this.sync.bind(this);
     }
