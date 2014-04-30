@@ -276,8 +276,7 @@ module.exports = function (grunt) {
                     cwd: '<%= config.sinatraViews %>/development',
                     dest: '<%= config.sinatraViews %>/production',
                     src: [
-                        '*.erb',
-                        'layouts/*.erb'
+                        '**/*.erb'
                     ],
                 }]
             },
