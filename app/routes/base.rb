@@ -27,16 +27,16 @@ module GruntSinatra
             layout_options: { views: 'app/views/production/layouts' }
       end
 
-      set(:auth) do |*roles|
+      set(:auth) do |check|
         condition do
-          unless is_user?
+          unless signed_in? || check.nil?
             redirect "/login", 303
           end
         end
       end
 
       before do
-        @user = User.get(session[:user_id])
+        @user ||= User.get(session[:user_id])
       end
 
       helpers Helpers

@@ -8,7 +8,7 @@
         <link rel="shortcut icon" href="/favicon.ico">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <% if is_user? %>
+        <% if signed_in? %>
             <!-- build:css(dev) /styles/create.css -->
             <link rel="stylesheet" href="/bower_components/create/examples/font-awesome/css/font-awesome.css">
             <link rel="stylesheet" href="/bower_components/create/themes/create-ui/css/create-ui.css">
@@ -47,7 +47,7 @@
         <!-- endbower -->
         <!-- endbuild -->
 
-        <% if is_user? %>
+        <% if signed_in? %>
             <!-- build:js(dev) /scripts/create.js -->
             <script src="/bower_components/jquery-ui/ui/jquery-ui.js"></script>
             <script src="/bower_components/underscore/underscore.js"></script>

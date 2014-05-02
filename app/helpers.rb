@@ -5,7 +5,7 @@ module GruntSinatra
       current_user = user
     end
 
-    def is_user?
+    def signed_in?
       !@user.nil?
     end
 
