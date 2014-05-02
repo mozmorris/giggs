@@ -54,11 +54,6 @@ module GruntSinatra
     use Rack::Standards
 
     use Routes::Static
-
-    unless settings.production?
-      # Production only
-    end
-
     use Routes::Pages
     use Routes::Users
   end

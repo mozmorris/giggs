@@ -52,6 +52,7 @@ module.exports = function (grunt) {
             // },
             backend: {
                 files: [
+                    '.env',
                     'Gemfile',
                     'Gemfile.lock',
                     'app/**/*.rb',
@@ -99,6 +100,7 @@ module.exports = function (grunt) {
                     src: [
                         '<%= config.app %>/tmp',
                         '<%= config.dist %>/*',
+                        '<%= config.sinatraViews %>/production',
                         '!<%= config.dist %>/.git*'
                     ]
                 }]
@@ -138,9 +140,9 @@ module.exports = function (grunt) {
             dist: {
                 options: {
                     generatedImagesDir: '<%= config.dist %>/images/generated',
-                    httpImagesPath: '../images',
-                    httpGeneratedImagesPath: '../images/generated',
-                    httpFontsPath: '../styles/fonts'
+                    httpImagesPath: '/images',
+                    httpGeneratedImagesPath: '/images/generated',
+                    httpFontsPath: '/styles/fonts'
                 }
             },
             dev: {
@@ -186,6 +188,7 @@ module.exports = function (grunt) {
                         '<%= config.dist %>/styles/{,*/}*.css',
                         '<%= config.dist %>/images/{,*/}*.*',
                         '<%= config.dist %>/styles/fonts/{,*/}*.*',
+                        '<%= config.dist %>/bower_components/**/*.*',
                         '<%= config.dist %>/*.{ico,png}'
                     ]
                 }
@@ -197,7 +200,16 @@ module.exports = function (grunt) {
         // additional tasks can operate on them
         useminPrepare: {
             options: {
-                dest: '<%= config.dist %>'
+                dest: '<%= config.dist %>',
+                flow: {
+                    html: {
+                        steps: {
+                            js: ['concat', 'uglifyjs'],
+                            css: ['cssmin']
+                        },
+                        post: {}
+                    }
+                }
             },
             html: '<%= config.sinatraLayouts %>/layout.erb'
         },
@@ -210,6 +222,13 @@ module.exports = function (grunt) {
             html: ['<%= config.dist %>/{,*/}*.html', '<%= config.sinatraViews %>/production/{,*/}*.erb'],
             css: ['<%= config.dist %>/styles/{,*/}*.css']
         },
+
+        cssmin: {
+            options: {
+                root: '<%= config.app %>'
+            }
+        },
+
 
         // The following *-min tasks produce minified files in the dist folder
         imagemin: {
@@ -270,14 +289,25 @@ module.exports = function (grunt) {
                         '{,*/}*.html',
                         'styles/fonts/{,*/}*.*'
                     ]
-                },
-                {
+                }, {
                     expand: true,
                     cwd: '<%= config.sinatraViews %>/development',
                     dest: '<%= config.sinatraViews %>/production',
                     src: [
                         '**/*.erb'
                     ],
+                }, {
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= config.app %>',
+                    src: 'bower_components/create/examples/font-awesome/font/*.*',
+                    dest: '<%= config.dist %>'
+                }, {
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= config.app %>',
+                    src: ['bower_components/create/themes/create-ui/img/*.{gif,jpeg,jpg,png}'],
+                    dest: '<%= config.dist %>'
                 }]
             },
             styles: {
