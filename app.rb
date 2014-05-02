@@ -32,7 +32,7 @@ module GruntSinatra
       }
     end
 
-    configure :development, :staging do
+    configure :development do
       database.loggers << Logger.new(STDOUT)
     end
 
