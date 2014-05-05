@@ -1,6 +1,8 @@
 #!/usr/bin/env rake
 require 'rake/testtask'
 
+task :default => 'test'
+
 task :app do
   require './app'
 end
