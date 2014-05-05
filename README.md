@@ -1,4 +1,4 @@
-# _Giggs_
+# _Giggs_ [![Build Status](https://travis-ci.org/MozMorris/giggs.svg?branch=master)](https://travis-ci.org/MozMorris/giggs)
 
 _Giggs combines [Create.js](http://createjs.org/) and Sinatra. It's a great starting point for building websites where the content can be edited in-line. No more "Edit - Preview - Publish"._
 
