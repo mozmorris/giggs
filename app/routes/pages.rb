@@ -2,7 +2,7 @@ module GruntSinatra
   module Routes
     class Pages < Base
       get '/' do
-        @page = Page[1]
+        @page = Page.first
 
         erb :index
       end

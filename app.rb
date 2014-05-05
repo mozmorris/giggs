@@ -44,7 +44,6 @@ module GruntSinatra
 
       set :sessions,
           httponly: true,
-          secure: production?,
           secure: false,
           expire_after: 5.years,
           secret: ENV['SESSION_SECRET']

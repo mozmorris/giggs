@@ -4,7 +4,6 @@ ruby '2.0.0'
 gem 'sinatra', require: 'sinatra/base'
 gem 'sinatra-contrib', github: 'maccman/sinatra-contrib'
 gem 'sinatra-flash'
-gem 'passenger'
 gem 'rack-standards'
 gem 'erubis'
 gem 'i18n'
@@ -20,7 +19,16 @@ gem 'sequel'
 gem 'sinatra-sequel'
 gem 'mysql2'
 
+group :production do
+  gem 'passenger'
+end
+
 group :development do
   gem 'debugger', require: 'ruby-debug'
   gem 'thor'
+end
+
+group :test do
+  gem 'sqlite3'
+  gem 'database_cleaner'
 end

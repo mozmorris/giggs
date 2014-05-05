@@ -13,7 +13,7 @@ module GruntSinatra
         enable :use_code
       end
 
-      configure :development do
+      configure :development, :test do
         set :views, 'app/views/development'
 
         set :erb,
