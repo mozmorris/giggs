@@ -6,6 +6,9 @@ require 'minitest/pride'
 require 'rack/test'
 require 'sequel'
 require 'database_cleaner'
+require 'coveralls'
+
+Coveralls.wear!
 
 require File.expand_path('../../app.rb', __FILE__)
 

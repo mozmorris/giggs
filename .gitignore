@@ -1,6 +1,7 @@
 .tmp
 .env
 .sass-cache
+coverage
 dev/bower_components
 log
 node_modules
