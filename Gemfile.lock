@@ -47,7 +47,6 @@ GEM
     mime-types (2.2)
     minitest (5.3.3)
     multi_json (1.9.3)
-    mysql2 (0.3.15)
     passenger (4.0.41)
       daemon_controller (>= 1.2.0)
       rack
@@ -100,7 +99,6 @@ DEPENDENCIES
   erubis
   i18n
   json (~> 1.7.7)
-  mysql2
   passenger
   rack-standards
   rake

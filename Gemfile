@@ -17,7 +17,7 @@ gem 'bcrypt-ruby'
 # DB
 gem 'sequel'
 gem 'sinatra-sequel'
-gem 'mysql2'
+gem 'sqlite3'
 
 group :production do
   gem 'passenger'
@@ -29,7 +29,6 @@ group :development do
 end
 
 group :test do
-  gem 'sqlite3'
   gem 'database_cleaner'
   gem 'coveralls', require: false
 end
