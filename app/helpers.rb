@@ -2,6 +2,7 @@ module GruntSinatra
   module Helpers
     def sign_in(user)
       session[:user_id] = user.id
+
       current_user = user
     end
 
@@ -21,6 +22,7 @@ module GruntSinatra
 
       def user_from_id
         id = session[:user_id]
+
         User[id] unless id.nil?
       end
   end

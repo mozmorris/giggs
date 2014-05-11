@@ -3,11 +3,11 @@ module GruntSinatra
     class Users < Base
       register Sinatra::Flash
 
-      get '/login' do
-        erb :login
+      get '/signin' do
+        erb :signin
       end
 
-      post '/login' do
+      post '/signin' do
         user = User.first(email: params[:email])
 
         if user && user.authenticate(params[:password])
@@ -15,11 +15,11 @@ module GruntSinatra
           redirect to('/')
         else
           flash.now[:error] = 'Incorrect email/password combination. Please try again.'
-          erb :login
+          erb :signin
         end
       end
 
-      get '/logout' do
+      get '/signout' do
         session.destroy
 
         redirect to('/')
