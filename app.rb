@@ -28,7 +28,7 @@ module GruntSinatra
     configure do
       set :database, lambda {
         ENV['DATABASE_URL'] ||
-          "mysql2://username:password@localhost:3306/grunt_sinatra_#{environment}"
+          "sqlite://grunt-sinatra-#{environment}.db"
       }
     end
 

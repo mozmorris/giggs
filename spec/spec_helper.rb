@@ -1,5 +1,4 @@
 ENV['RACK_ENV'] = 'test'
-ENV['DATABASE_URL'] = 'sqlite://test.db'
 
 require 'minitest/autorun'
 require 'minitest/pride'

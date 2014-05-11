@@ -5,5 +5,5 @@ coverage
 dev/bower_components
 log
 node_modules
-test.db
+grunt-sinatra-*.db
 tmp
