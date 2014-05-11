@@ -12,13 +12,11 @@ module GruntSinatra
       DatabaseCleaner.start
 
       @page = Page.create(
-        :h1       => 'Test Header',
-        :h2       => 'Test Sub-header',
-        :intro    => 'Test Intro'
+        :h1      => 'Test Header',
+        :content => 'Test Content'
       )
 
       @user = User.create(
-        :name     => 'Test User',
         :email    => 'test@user.com',
         :password => 'password'
       )
@@ -35,8 +33,7 @@ module GruntSinatra
         last_response.status.must_equal 200
 
         last_response.body.must_include @page[:h1]
-        last_response.body.must_include @page[:h2]
-        last_response.body.must_include @page[:intro]
+        last_response.body.must_include @page[:content]
       end
     end
 
@@ -46,30 +43,26 @@ module GruntSinatra
 
       it "should fail for unauthorized users" do
         put '/pages/' + @page[:id].to_s, {
-          '<http://viejs.org/ns/h1>'    => 'Test Header (updated)',
-          '<http://viejs.org/ns/h2>'    => 'Test Sub-header (updated)',
-          '<http://viejs.org/ns/intro>' => 'Test Intro (updated)'
+          '<http://viejs.org/ns/h1>'      => 'Test Header (updated)',
+          '<http://viejs.org/ns/content>' => 'Test Content (updated)'
         }
 
         last_response.status.must_equal 303
 
         updated1[:h1].wont_include "Test Header (updated)"
-        updated1[:h2].wont_include "Test Sub-header (updated)"
-        updated1[:intro].wont_include "Test Intro (updated)"
+        updated1[:content].wont_include "Test Content (updated)"
       end
 
       it "should update for authorized users" do
         put '/pages/' + @page[:id].to_s, {
-          '<http://viejs.org/ns/h1>'    => 'Test Header (updated)',
-          '<http://viejs.org/ns/h2>'    => 'Test Sub-header (updated)',
-          '<http://viejs.org/ns/intro>' => 'Test Intro (updated)'
+          '<http://viejs.org/ns/h1>'      => 'Test Header (updated)',
+          '<http://viejs.org/ns/content>' => 'Test Content (updated)'
         }, 'rack.session' => { :user_id => @user[:id] }
 
         last_response.status.must_equal 200
 
         updated2[:h1].must_include "Test Header (updated)"
-        updated2[:h2].must_include "Test Sub-header (updated)"
-        updated2[:intro].must_include "Test Intro (updated)"
+        updated2[:content].must_include "Test Content (updated)"
       end
     end
   end
