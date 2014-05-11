@@ -7,9 +7,8 @@ module GruntSinatra
 
       def self.extract_properties(properties)
         {
-          :h1    => properties['<http://viejs.org/ns/h1>'],
-          :h2    => properties['<http://viejs.org/ns/h2>'],
-          :intro => properties['<http://viejs.org/ns/intro>']
+          :h1      => properties['<http://viejs.org/ns/h1>'],
+          :content => properties['<http://viejs.org/ns/content>']
         }
       end
     end
