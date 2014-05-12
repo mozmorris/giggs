@@ -5,7 +5,7 @@
     "modernizr": "~2.6.2",
     "jquery": "~1.11.0",
     "create": "*",
-    "normalize-scss": "git://github.com/JohnAlbin/normalize-scss#master"
+    "bootstrap-sass-official": "~3.1.1+2"
   },
   "devDependencies": {},
   "resolutions": {

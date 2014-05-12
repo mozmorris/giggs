@@ -45,11 +45,10 @@
 \*------------------------------------*/
 
 // bower:scss
-@import "../bower_components/normalize-scss/_normalize.scss";
+@import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap";
 // endbower
 
-// @import "h5bp";
-// @import "compass/css3";
+@import "compass/css3";
 
 
 
@@ -59,14 +58,6 @@
 /*--------------------------------------------*\
     $MISC
 \*--------------------------------------------*/
-
-*,
-*:before,
-*:after {
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-}
 
 .browsehappy {
     margin: 0.2em 0;
@@ -84,10 +75,7 @@
     $IMPORTS
 \*--------------------------------------------*/
 
-// @import "functions";
-// @import "mixins";
-// @import "classes";
-// @import "typography";
+@import "cover";
 
 
 
@@ -97,7 +85,27 @@
     $LAYOUT
 \*--------------------------------------------*/
 
+body {
+    @include background(linear-gradient(to right top, #C90007 0%, #730000 100%));
+}
 
+
+
+
+
+/*--------------------------------------------*\
+    $FORMS
+\*--------------------------------------------*/
+
+.signin-form {
+    max-width: 340px;
+    margin: 0 auto;
+    text-align: left;
+
+    .alert {
+        margin: 15px 0;
+    }
+}
 
 
 

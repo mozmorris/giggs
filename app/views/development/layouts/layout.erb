@@ -35,7 +35,25 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <%== yield %>
+        <div class="site-wrapper">
+            <div class="site-wrapper-inner">
+                <div class="cover-container">
+                    <%== erb 'partials/_header'.to_sym %>
+
+                    <div class="inner cover">
+                        <%== yield %>
+                    </div>
+
+                    <div class="mastfoot">
+                        <div class="inner">
+                            <p>
+                                A simple CMS built with <a href="http://www.sinatrarb.com/" title="Sinatra">Sinatra</a> and <a href="http://createjs.org/" title="Create.js - Make anything editable">Create.js</a>, by <a href="http://www.mozmorris.com/" title="Moz Morris">MozMorris</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- build:js(dev) /scripts/vendor.js -->
         <!-- bower:js -->

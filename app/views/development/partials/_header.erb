@@ -1,0 +1,21 @@
+<div class="masthead clearfix">
+    <div class="inner">
+        <h3 class="masthead-brand">Giggs</h3>
+
+        <ul class="nav masthead-nav">
+            <li><a href="/">Home</a></li>
+
+            <li><a href="#">Documentation</a></li>
+
+            <li><a href="https://github.com/MozMorris/giggs" title="MozMorris/giggs - GitHub">GitHub</a></li>
+
+            <li>
+                <% if signed_in? %>
+                    <a href="/signout">Sign out</a>
+                <% else %>
+                    <a href="/signin">Sign in</a>
+                <% end %>
+            </li>
+        </ul>
+    </div>
+</div>
