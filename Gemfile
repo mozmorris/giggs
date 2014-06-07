@@ -17,7 +17,7 @@ gem 'bcrypt-ruby'
 # DB
 gem 'sequel'
 gem 'sinatra-sequel'
-gem 'sqlite3'
+gem 'mysql2'
 
 group :production do
   gem 'passenger'
