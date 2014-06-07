@@ -22,7 +22,7 @@ _How do I start working on the project?_
 4. Compile and watch assets.  
 `$ grunt serve`
 
-5. Run your usual rack web server. This example uses the [Powder ](https://github.com/rodreegez/powder) gem to run [Pow](http://pow.cx/).
+5. Run your usual rack web server. This example uses the [Powder ](https://github.com/rodreegez/powder) gem to run [Pow](http://pow.cx/).  
 `$ powder link && powder up`
 
 ## Testing
