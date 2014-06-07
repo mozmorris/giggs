@@ -12,7 +12,8 @@ gem 'rake'
 gem 'builder'
 gem 'json', '~> 1.7.7'
 gem 'dotenv'
-gem 'bcrypt-ruby'
+gem 'bcrypt'
+gem 'thor'
 
 # DB
 gem 'sequel'
@@ -25,7 +26,6 @@ end
 
 group :development do
   gem 'debugger', require: 'ruby-debug'
-  gem 'thor'
 end
 
 group :test do
