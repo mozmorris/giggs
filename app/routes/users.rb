@@ -17,7 +17,6 @@ module GruntSinatra
           flash.now[:error] = 'Incorrect email/password combination. Please try again.'
 
           status 401
-          headers['WWW-Authenticate'] = 'Basic realm="Restricted Area"'
 
           erb :signin
         end
