@@ -5,7 +5,7 @@
     "modernizr": "~2.6.2",
     "jquery": "~1.11.0",
     "create": "*",
-    "bootstrap-sass-official": "~3.1.1+2"
+    "bootstrap-sass-official": "v3.1.1+2"
   },
   "devDependencies": {},
   "resolutions": {
