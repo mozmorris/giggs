@@ -1,0 +1,1 @@
+<section about="/pages/<%= @page[:id] %>" vocab="http://schema.org/" typeof=WebPage><h1 property=h1><%== @page[:h1] %></h1><p class=lead property=content><%== @page[:content] %></p><% unless signed_in? %><p class=lead>Sign in to edit this page.</p><p class=lead><a href=/signin class="btn btn-lg btn-default">Sign in</a></p><% end %></section>
